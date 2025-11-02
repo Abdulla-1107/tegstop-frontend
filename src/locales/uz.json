@@ -1,0 +1,70 @@
+{
+  "app": {
+    "title": "Qidiruv tizimi"
+  },
+  "nav": {
+    "home": "Bosh sahifa",
+    "myRecords": "Mening yozuvlarim",
+    "addRecord": "Qo'shish",
+    "logout": "Chiqish"
+  },
+  "auth": {
+    "login": "Kirish",
+    "username": "Foydalanuvchi nomi",
+    "password": "Parol",
+    "loginButton": "Kirish",
+    "loginError": "Kirish xatosi. Iltimos, qaytadan urinib ko'ring.",
+    "invalidCredentials": "Noto'g'ri foydalanuvchi nomi yoki parol"
+  },
+  "search": {
+    "title": "Qidirish",
+    "passportSeries": "Pasport seriyasi",
+    "passportCode": "Pasport raqami",
+    "searchButton": "Izlash",
+    "notFound": "Ma'lumot topilmadi",
+    "notFoundDesc": "Kiritilgan pasport ma'lumotlari bo'yicha hech narsa topilmadi"
+  },
+  "record": {
+    "fullName": "To'liq ism",
+    "status": "Holati",
+    "addedBy": "Qo'shgan foydalanuvchi",
+    "addedAt": "Qo'shilgan vaqt",
+    "statusNasiya": "Nasiya orqali foydalanmoqda",
+    "statusUnpaid": "Pul to'lamagan mijoz"
+  },
+  "myRecords": {
+    "title": "Mening yozuvlarim",
+    "noRecords": "Yozuvlar topilmadi",
+    "noRecordsDesc": "Siz hali hech qanday yozuv qo'shmagansiz",
+    "name": "Ism",
+    "surname": "Familiya",
+    "passport": "Pasport",
+    "type": "Turi",
+    "created": "Yaratilgan",
+    "typeNasiya": "Nasiya mijoz",
+    "typeUnpaid": "Pul to'lamagan"
+  },
+  "addRecord": {
+    "title": "Yangi yozuv qo'shish",
+    "name": "Ism (ixtiyoriy)",
+    "surname": "Familiya (ixtiyoriy)",
+    "passportSeries": "Pasport seriyasi",
+    "passportCode": "Pasport raqami",
+    "type": "Turi",
+    "typeNasiya": "Nasiya mijoz",
+    "typeUnpaid": "Pul to'lamagan mijoz",
+    "submit": "Qo'shish",
+    "success": "Yozuv muvaffaqiyatli qo'shildi",
+    "error": "Xato yuz berdi. Iltimos, qaytadan urinib ko'ring.",
+    "passportCodeHelper": "6 raqamli kod kiriting"
+  },
+  "theme": {
+    "light": "Yorug'",
+    "dark": "Qorong'u"
+  },
+  "common": {
+    "loading": "Yuklanmoqda...",
+    "error": "Xato",
+    "success": "Muvaffaqiyat"
+  }
+}
