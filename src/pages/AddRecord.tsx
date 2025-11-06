@@ -95,35 +95,6 @@ export default function AddRecord() {
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
                 {/* Ism / Familiya */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">{t("addRecord.name")}</Label>
-                    <Input
-                      id="name"
-                      type="text"
-                      placeholder={t("addRecord.name")}
-                      value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
-                      disabled={loading}
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="surname">{t("addRecord.surname")}</Label>
-                    <Input
-                      id="surname"
-                      type="text"
-                      placeholder={t("addRecord.surname")}
-                      value={formData.surname}
-                      onChange={(e) =>
-                        setFormData({ ...formData, surname: e.target.value })
-                      }
-                      disabled={loading}
-                    />
-                  </div>
-                </div>
 
                 {/* Pasport ma’lumotlari */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -195,6 +166,36 @@ export default function AddRecord() {
                       </Label>
                     </div>
                   </RadioGroup>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="name">{t("addRecord.name")}</Label>
+                    <Input
+                      id="name"
+                      type="text"
+                      placeholder={t("addRecord.name")}
+                      value={formData.name}
+                      onChange={(e) =>
+                        setFormData({ ...formData, name: e.target.value })
+                      }
+                      disabled={loading}
+                    />
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label htmlFor="surname">{t("addRecord.surname")}</Label>
+                    <Input
+                      id="surname"
+                      type="text"
+                      placeholder={t("addRecord.surname")}
+                      value={formData.surname}
+                      onChange={(e) =>
+                        setFormData({ ...formData, surname: e.target.value })
+                      }
+                      disabled={loading}
+                    />
+                  </div>
                 </div>
 
                 {/* Submit tugmasi */}
