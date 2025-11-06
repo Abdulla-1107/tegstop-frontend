@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { Plus, Loader2 } from "lucide-react";
-import { recordsAPI } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -55,7 +54,7 @@ export default function AddRecord() {
 
     setLoading(true);
     try {
-      await createFraudster.mutateAsync(formData); // ✅ BU YER ASOSIY
+      await createFraudster.mutateAsync(formData);
       toast.success(t("addRecord.success"));
       navigate("/my-records");
     } catch (error: any) {
@@ -67,7 +66,6 @@ export default function AddRecord() {
   };
 
   return (
-    // ✅ MUHIM!! RETURN YO‘Q BO‘LSA JSX CHIQMAYDI
     <div className="min-h-screen bg-background">
       <Navbar />
 
@@ -78,6 +76,7 @@ export default function AddRecord() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl font-bold mb-2">{t("addRecord.title")}</h1>
+          <p className="text-muted-foreground">{t("addRecord.subtitle")}</p>
         </motion.div>
 
         <motion.div
@@ -85,16 +84,17 @@ export default function AddRecord() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
         >
-          <Card className="shadow-lg">
+          <Card className="shadow-lg border">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
                 <Plus className="h-5 w-5" />
                 {t("addRecord.title")}
               </CardTitle>
-              <CardDescription>To'liq ma'lumotlarni kiriting</CardDescription>
+              <CardDescription>To‘liq ma’lumotlarni kiriting</CardDescription>
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Ism / Familiya */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t("addRecord.name")}</Label>
@@ -125,6 +125,7 @@ export default function AddRecord() {
                   </div>
                 </div>
 
+                {/* Pasport ma’lumotlari */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="passportSeriya">
@@ -171,6 +172,7 @@ export default function AddRecord() {
                   </div>
                 </div>
 
+                {/* Turini tanlash */}
                 <div className="space-y-3">
                   <Label>{t("addRecord.type")}</Label>
                   <RadioGroup
@@ -195,6 +197,7 @@ export default function AddRecord() {
                   </RadioGroup>
                 </div>
 
+                {/* Submit tugmasi */}
                 <Button
                   type="submit"
                   className="w-full"
