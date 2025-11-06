@@ -4,7 +4,7 @@
   },
   "nav": {
     "home": "Bosh sahifa",
-    "myRecords": "Mening yozuvlarim",
+    "myRecords": "Men qo'shganlar",
     "addRecord": "Qo'shish",
     "logout": "Chiqish"
   },
@@ -33,7 +33,7 @@
     "statusUnpaid": "Pul to'lamagan mijoz"
   },
   "myRecords": {
-    "title": "Mening yozuvlarim",
+    "title": "Men qo'shganlar",
     "noRecords": "Yozuvlar topilmadi",
     "noRecordsDesc": "Siz hali hech qanday yozuv qo'shmagansiz",
     "name": "Ism",

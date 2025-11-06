@@ -6,7 +6,7 @@ import { Toaster as Sonner } from '@/components/ui/sonner';
 import { TooltipProvider } from '@/components/ui/tooltip';
 import { useThemeStore } from '@/store/useThemeStore';
 import { useAuthStore } from '@/store/useAuthStore';
-// import { ProtectedRoute } from '@/components/ProtectedRoute';
+import { ProtectedRoute } from '@/components/ProtectedRoute';
 import Login from '@/pages/Login';
 import Home from '@/pages/Home';
 import MyRecords from '@/pages/MyRecords';
@@ -40,7 +40,7 @@ const App = () => {
             <Route
               path="/"
               element={
-                // <ProtectedRoute>
+                <ProtectedRoute>
                   <Home />
                 // </ProtectedRoute>
               }
@@ -48,7 +48,7 @@ const App = () => {
             <Route
               path="/my-records"
               element={
-                // <ProtectedRoute>
+                <ProtectedRoute>
                   <MyRecords />
                 // </ProtectedRoute>
               }
@@ -56,7 +56,7 @@ const App = () => {
             <Route
               path="/add-record"
               element={
-                // <ProtectedRoute>
+                <ProtectedRoute>
                   <AddRecord />
                 // </ProtectedRoute>
               }
