@@ -34,12 +34,10 @@ export default function Home() {
   const [searched, setSearched] = useState(false);
 
   // Query faqat button bosilganda ishlaydi
-  const { data, isFetching, refetch } = getFraudsterSearch(
-    {
-      passportSeriya: searchParams.passportSeriya,
-      passportCode: searchParams.passportCode,
-    },
-  );
+  const { data, isFetching, refetch } = getFraudsterSearch({
+    passportSeriya: searchParams.passportSeriya,
+    passportCode: searchParams.passportCode,
+  });
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -117,6 +115,7 @@ export default function Home() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="AD">AD</SelectItem>
+                        <SelectItem value="AD">AC</SelectItem>
                         <SelectItem value="AE">AE</SelectItem>
                         <SelectItem value="AB">AB</SelectItem>
                         <SelectItem value="KA">KA</SelectItem>
