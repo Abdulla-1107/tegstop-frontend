@@ -115,7 +115,7 @@ export default function Home() {
                       </SelectTrigger>
                       <SelectContent>
                         <SelectItem value="AD">AD</SelectItem>
-                        <SelectItem value="AD">AC</SelectItem>
+                        <SelectItem value="AC">AC</SelectItem>
                         <SelectItem value="AE">AE</SelectItem>
                         <SelectItem value="AB">AB</SelectItem>
                         <SelectItem value="KA">KA</SelectItem>
