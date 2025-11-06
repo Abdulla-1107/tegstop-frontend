@@ -3,6 +3,7 @@ import { api } from "./api";
 
 export interface IParams {
   search?: string;
+  passportSeriya?: string;
   passportCode?: string;
 }
 
@@ -21,6 +22,15 @@ export const useFraudsters = () => {
       queryKey: ["fraudster-count"],
       queryFn: () => api.get("fraudster/count").then((res) => res.data),
     });
+
+  const getFraudsterSearch = (props: IParams) =>
+    useQuery({
+      queryKey: ["fraudster-search", props],
+      queryFn: () =>
+        api.get("fraudster/search", { params: props }).then((res) => res.data),
+      enabled: false
+    });
+
   const getFraudsterMyCount = () =>
     useQuery({
       queryKey: ["fraudster-my-count"],
@@ -57,6 +67,7 @@ export const useFraudsters = () => {
     deleteFraudster,
     getFraudsterCount,
     getFraudsterMyCount,
+    getFraudsterSearch,
     createFraudster,
     getOneFraudster,
   };
