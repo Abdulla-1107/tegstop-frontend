@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
-import { LogIn, Loader2 } from "lucide-react";
+import { LogIn, Loader2, Send } from "lucide-react"; // ✅ Telegram icon qo‘shildi
 import { useAuthStore } from "@/store/useAuthStore";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,6 +22,7 @@ export default function Login() {
   const navigate = useNavigate();
   const { setAuth } = useAuthStore();
   const [loading, setLoading] = useState(false);
+
   const [credentials, setCredentials] = useState({
     username: "",
     password: "",
@@ -37,13 +38,9 @@ export default function Login() {
 
     setLoading(true);
     try {
-      // Backendga so‘rov
       const response = await login(credentials);
 
-      // tokenni localStorage ga saqlash
       localStorage.setItem("token", response.token);
-
-      // store ga tokenni o‘tkazish
       setAuth(null, response.token);
 
       toast.success(t("common.success"));
@@ -79,6 +76,7 @@ export default function Login() {
             </CardTitle>
             <CardDescription>{t("app.title")}</CardDescription>
           </CardHeader>
+
           <CardContent>
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="space-y-2">
@@ -92,7 +90,6 @@ export default function Login() {
                     setCredentials({ ...credentials, username: e.target.value })
                   }
                   disabled={loading}
-                  className="transition-all"
                 />
               </div>
 
@@ -107,7 +104,6 @@ export default function Login() {
                     setCredentials({ ...credentials, password: e.target.value })
                   }
                   disabled={loading}
-                  className="transition-all"
                 />
               </div>
 
@@ -123,6 +119,18 @@ export default function Login() {
                     {t("auth.loginButton")}
                   </>
                 )}
+              </Button>
+              <p className="text-center">Yoki ro'yxatdan o'tish</p>
+
+              {/* ✅ Telegram orqali ro'yxatdan o'tish tugmasi */}
+              <Button
+                type="button"
+                variant="secondary"
+                className="w-full flex items-center gap-2 mt-2"
+                onClick={() => window.open("https://t.me/FanzeeApp", "_blank")}
+              >
+                <Send className="h-4 w-4" />
+                {"Telegramdan yozing"}
               </Button>
             </form>
           </CardContent>
