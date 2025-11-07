@@ -1,11 +1,12 @@
 {
   "app": {
-    "title": "Tegstop"
+    "title": "Система поиска"
   },
   "nav": {
     "home": "Главная",
     "myRecords": "Мои записи",
     "addRecord": "Добавить",
+    "profile": "Профиль",
     "logout": "Выход"
   },
   "auth": {
@@ -61,6 +62,16 @@
   "theme": {
     "light": "Светлая",
     "dark": "Темная"
+  },
+  "profile": {
+    "title": "Профиль",
+    "userInfo": "Информация о пользователе",
+    "name": "Имя",
+    "username": "Имя пользователя",
+    "phone": "Телефон",
+    "role": "Роль",
+    "accountCreated": "Аккаунт создан",
+    "logoutButton": "Выйти"
   },
   "common": {
     "loading": "Загрузка...",

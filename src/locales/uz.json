@@ -1,11 +1,12 @@
 {
   "app": {
-    "title": "Tegstop"
+    "title": "Qidiruv tizimi"
   },
   "nav": {
     "home": "Bosh sahifa",
     "myRecords": "Men qo'shganlar",
     "addRecord": "Qo'shish",
+    "profile": "Profil",
     "logout": "Chiqish"
   },
   "auth": {
@@ -61,6 +62,16 @@
   "theme": {
     "light": "Yorug'",
     "dark": "Qorong'u"
+  },
+  "profile": {
+    "title": "Profil",
+    "userInfo": "Foydalanuvchi ma'lumotlari",
+    "name": "Ism",
+    "username": "Foydalanuvchi nomi",
+    "phone": "Telefon",
+    "role": "Rol",
+    "accountCreated": "Hisob yaratilgan",
+    "logoutButton": "Chiqish"
   },
   "common": {
     "loading": "Yuklanmoqda...",

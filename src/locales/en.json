@@ -1,11 +1,12 @@
 {
   "app": {
-    "title": "Tegstop"
+    "title": "Search System"
   },
   "nav": {
     "home": "Home",
     "myRecords": "My Records",
     "addRecord": "Add",
+    "profile": "Profile",
     "logout": "Logout"
   },
   "auth": {
@@ -61,6 +62,16 @@
   "theme": {
     "light": "Light",
     "dark": "Dark"
+  },
+  "profile": {
+    "title": "Profile",
+    "userInfo": "User Information",
+    "name": "Name",
+    "username": "Username",
+    "phone": "Phone",
+    "role": "Role",
+    "accountCreated": "Account Created",
+    "logoutButton": "Logout"
   },
   "common": {
     "loading": "Loading...",

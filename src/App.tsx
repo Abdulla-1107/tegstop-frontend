@@ -1,18 +1,19 @@
-import { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Toaster } from '@/components/ui/toaster';
-import { Toaster as Sonner } from '@/components/ui/sonner';
-import { TooltipProvider } from '@/components/ui/tooltip';
-import { useThemeStore } from '@/store/useThemeStore';
-import { useAuthStore } from '@/store/useAuthStore';
-import { ProtectedRoute } from '@/components/ProtectedRoute';
-import Login from '@/pages/Login';
-import Home from '@/pages/Home';
-import MyRecords from '@/pages/MyRecords';
-import AddRecord from '@/pages/AddRecord';
-import NotFound from '@/pages/NotFound';
-import './lib/i18n';
+import { useEffect } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Toaster } from "@/components/ui/toaster";
+import { Toaster as Sonner } from "@/components/ui/sonner";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { useThemeStore } from "@/store/useThemeStore";
+import { useAuthStore } from "@/store/useAuthStore";
+import { ProtectedRoute } from "@/components/ProtectedRoute";
+import Login from "@/pages/Login";
+import Home from "@/pages/Home";
+import MyRecords from "@/pages/MyRecords";
+import AddRecord from "@/pages/AddRecord";
+import NotFound from "@/pages/NotFound";
+import "./lib/i18n";
+import Profile from "./pages/Profil";
 
 const queryClient = new QueryClient();
 
@@ -42,7 +43,7 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <Home />
-                // </ProtectedRoute>
+                </ProtectedRoute>
               }
             />
             <Route
@@ -50,7 +51,7 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <MyRecords />
-                // </ProtectedRoute>
+                </ProtectedRoute>
               }
             />
             <Route
@@ -58,7 +59,15 @@ const App = () => {
               element={
                 <ProtectedRoute>
                   <AddRecord />
-                // </ProtectedRoute>
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
               }
             />
             <Route path="*" element={<NotFound />} />

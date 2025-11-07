@@ -1,11 +1,11 @@
-import { Link, useLocation } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
-import { Moon, Sun, LogOut, Menu, X } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useState } from 'react';
-import { useThemeStore } from '@/store/useThemeStore';
-import { useAuthStore } from '@/store/useAuthStore';
-import { Button } from '@/components/ui/button';
+import { Link, useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { Moon, Sun, LogOut, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { useThemeStore } from "@/store/useThemeStore";
+import { useAuthStore } from "@/store/useAuthStore";
+import { Button } from "@/components/ui/button";
 
 export const Navbar = () => {
   const { t, i18n } = useTranslation();
@@ -25,9 +25,10 @@ export const Navbar = () => {
   };
 
   const navLinks = [
-    { path: '/', label: t('nav.home') },
-    { path: '/my-records', label: t('nav.myRecords') },
-    { path: '/add-record', label: t('nav.addRecord') },
+    { path: "/", label: t("nav.home") },
+    { path: "/my-records", label: t("nav.myRecords") },
+    { path: "/add-record", label: t("nav.addRecord") },
+    { path: "/profile", label: t("nav.profile") },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -42,7 +43,7 @@ export const Navbar = () => {
               whileHover={{ scale: 1.05 }}
               className="text-2xl font-bold text-primary"
             >
-              {t('app.title')}
+              {t("app.title")}
             </motion.div>
           </Link>
 
@@ -51,7 +52,7 @@ export const Navbar = () => {
             {navLinks.map((link) => (
               <Link key={link.path} to={link.path}>
                 <Button
-                  variant={isActive(link.path) ? 'default' : 'ghost'}
+                  variant={isActive(link.path) ? "default" : "ghost"}
                   className="relative"
                 >
                   {link.label}
@@ -70,14 +71,14 @@ export const Navbar = () => {
           <div className="hidden md:flex items-center space-x-2">
             {/* Language Switcher */}
             <div className="flex items-center space-x-1 bg-secondary rounded-lg p-1">
-              {['uz', 'ru', 'en'].map((lng) => (
+              {["uz", "ru", "en"].map((lng) => (
                 <button
                   key={lng}
                   onClick={() => changeLanguage(lng)}
                   className={`px-3 py-1 rounded-md text-sm font-medium transition-colors ${
                     i18n.language === lng
-                      ? 'bg-primary text-primary-foreground'
-                      : 'text-muted-foreground hover:text-foreground'
+                      ? "bg-primary text-primary-foreground"
+                      : "text-muted-foreground hover:text-foreground"
                   }`}
                 >
                   {lng.toUpperCase()}
@@ -94,10 +95,10 @@ export const Navbar = () => {
             >
               <motion.div
                 initial={{ rotate: 0 }}
-                animate={{ rotate: theme === 'dark' ? 180 : 0 }}
+                animate={{ rotate: theme === "dark" ? 180 : 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {theme === 'light' ? (
+                {theme === "light" ? (
                   <Moon className="h-5 w-5" />
                 ) : (
                   <Sun className="h-5 w-5" />
@@ -108,7 +109,9 @@ export const Navbar = () => {
             {/* User Info & Logout */}
             {user && (
               <div className="flex items-center space-x-2 ml-2 pl-2 border-l border-border">
-                <span className="text-sm text-muted-foreground">{user.name}</span>
+                <span className="text-sm text-muted-foreground">
+                  {user.name}
+                </span>
                 <Button
                   variant="ghost"
                   size="icon"
@@ -139,7 +142,7 @@ export const Navbar = () => {
           {mobileMenuOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden pb-4 space-y-2"
             >
@@ -150,7 +153,7 @@ export const Navbar = () => {
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   <Button
-                    variant={isActive(link.path) ? 'default' : 'ghost'}
+                    variant={isActive(link.path) ? "default" : "ghost"}
                     className="w-full justify-start"
                   >
                     {link.label}
@@ -160,14 +163,14 @@ export const Navbar = () => {
 
               {/* Mobile Language Switcher */}
               <div className="flex items-center space-x-2 pt-2">
-                {['uz', 'ru', 'en'].map((lng) => (
+                {["uz", "ru", "en"].map((lng) => (
                   <button
                     key={lng}
                     onClick={() => changeLanguage(lng)}
                     className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
                       i18n.language === lng
-                        ? 'bg-primary text-primary-foreground'
-                        : 'bg-secondary text-muted-foreground'
+                        ? "bg-primary text-primary-foreground"
+                        : "bg-secondary text-muted-foreground"
                     }`}
                   >
                     {lng.toUpperCase()}
@@ -181,8 +184,12 @@ export const Navbar = () => {
                 onClick={toggleTheme}
                 className="w-full"
               >
-                {theme === 'light' ? <Moon className="h-5 w-5 mr-2" /> : <Sun className="h-5 w-5 mr-2" />}
-                {t(`theme.${theme === 'light' ? 'dark' : 'light'}`)}
+                {theme === "light" ? (
+                  <Moon className="h-5 w-5 mr-2" />
+                ) : (
+                  <Sun className="h-5 w-5 mr-2" />
+                )}
+                {t(`theme.${theme === "light" ? "dark" : "light"}`)}
               </Button>
 
               {/* Mobile Logout */}
@@ -193,7 +200,7 @@ export const Navbar = () => {
                   className="w-full"
                 >
                   <LogOut className="h-5 w-5 mr-2" />
-                  {t('nav.logout')}
+                  {t("nav.logout")}
                 </Button>
               )}
             </motion.div>
