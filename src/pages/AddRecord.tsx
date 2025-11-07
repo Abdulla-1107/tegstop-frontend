@@ -76,7 +76,6 @@ export default function AddRecord() {
           className="text-center mb-8"
         >
           <h1 className="text-4xl font-bold mb-2">{t("addRecord.title")}</h1>
-          <p className="text-muted-foreground">{t("addRecord.subtitle")}</p>
         </motion.div>
 
         <motion.div
@@ -160,7 +159,7 @@ export default function AddRecord() {
                       </Label>
                     </div>
                     <div className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-muted/50 transition-colors cursor-pointer">
-                      <RadioGroupItem value="PulTolamagan" id="unpaid" />
+                      <RadioGroupItem value="TolovQilinmagan" id="unpaid" />
                       <Label htmlFor="unpaid" className="flex-1 cursor-pointer">
                         {t("addRecord.typeUnpaid")}
                       </Label>

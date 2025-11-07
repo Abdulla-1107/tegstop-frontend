@@ -56,7 +56,7 @@
     "submit": "Qo'shish",
     "success": "Yozuv muvaffaqiyatli qo'shildi",
     "error": "Xato yuz berdi. Iltimos, qaytadan urinib ko'ring.",
-    "passportCodeHelper": "6 raqamli kod kiriting"
+    "passportCodeHelper": "7 raqamli kod kiriting"
   },
   "theme": {
     "light": "Yorug'",

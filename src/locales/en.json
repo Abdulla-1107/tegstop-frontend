@@ -56,7 +56,7 @@
     "submit": "Add",
     "success": "Record added successfully",
     "error": "An error occurred. Please try again.",
-    "passportCodeHelper": "Enter 6-digit code"
+    "passportCodeHelper": "Enter 7-digit code"
   },
   "theme": {
     "light": "Light",

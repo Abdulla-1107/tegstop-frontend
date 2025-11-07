@@ -151,7 +151,7 @@ export const Navbar = () => {
                 >
                   <Button
                     variant={isActive(link.path) ? 'default' : 'ghost'}
-                    className="w-full justify-start"
+                    className="w-full justify-start border mt-1 border-[#030]"
                   >
                     {link.label}
                   </Button>
