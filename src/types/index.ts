@@ -39,4 +39,5 @@ export interface CreateRecordData {
   passportSeriya: "AD" | "AB" | "KA";
   passportCode: string;
   type: "NasiyaMijoz" | "PulTolamagan";
+  time?: number;
 }

@@ -28,7 +28,7 @@ export const useFraudsters = () => {
       queryKey: ["fraudster-search", props],
       queryFn: () =>
         api.get("fraudster/search", { params: props }).then((res) => res.data),
-      enabled: false
+      enabled: false,
     });
 
   const getFraudsterMyCount = () =>
@@ -58,7 +58,7 @@ export const useFraudsters = () => {
     mutationFn: (id: string) =>
       api.delete(`fraudster/${id}`).then((res) => res.data),
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["fraudster"] });
+      queryClient.invalidateQueries({ queryKey: ["fraudster-my-count"] });
     },
   });
 

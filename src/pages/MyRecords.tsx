@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
 import { FileText, Plus, Calendar } from "lucide-react";
 import { Link } from "react-router-dom";
-import { recordsAPI } from "@/lib/api";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -17,12 +16,13 @@ import { Navbar } from "@/components/Navbar";
 import { toast } from "sonner";
 import type { Record } from "@/types";
 import { useFraudsters } from "@/hooks/useFraudster";
+import { recordsAPI } from "@/lib/api";
 
 export default function MyRecords() {
   const { t } = useTranslation();
   const [records, setRecords] = useState<Record[]>([]);
   const [loading, setLoading] = useState(true);
-  const { getFraudsterMyCount } = useFraudsters();
+  const { getFraudsterMyCount, deleteFraudster } = useFraudsters();
   const { data } = getFraudsterMyCount();
 
   const recordsData = data?.data || [];
@@ -165,6 +165,33 @@ export default function MyRecords() {
                             day: "numeric",
                           }
                         )}
+                      </div>
+
+                      {/* DELETE BUTTON */}
+                      <div className="mt-2">
+                        <Button
+                          variant="destructive"
+                          size="sm"
+                          onClick={async () => {
+                            if (
+                              confirm(
+                                "Haqiqatan ham ushbu yozuvni o‘chirmoqchimisiz?"
+                              )
+                            ) {
+                              try {
+                                await deleteFraudster.mutateAsync(record.id);
+                                toast.success(
+                                  "Yozuv muvaffaqiyatli o‘chirildi"
+                                );
+                              } catch (err) {
+                                console.error(err);
+                                toast.error("O‘chirishda xatolik yuz berdi");
+                              }
+                            }
+                          }}
+                        >
+                          o'chirish
+                        </Button>
                       </div>
                     </CardContent>
                   </Card>

@@ -26,8 +26,7 @@ const Profile = () => {
     queryKey: ["user"],
     queryFn: () => api.get("user/profile").then((res) => res.data),
   });
-
-  const user = data?.data;
+  
 
   const handleLogout = () => {
     logout();
@@ -46,7 +45,7 @@ const Profile = () => {
   }
 
   // 🔹 Xatolik paytida
-  if (isError || !user) {
+  if (isError || !data) {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <p className="text-red-500 text-lg">
@@ -95,7 +94,7 @@ const Profile = () => {
                   <p className="text-sm text-muted-foreground">
                     {t("profile.name") || "Full Name"}
                   </p>
-                  <p className="text-lg font-semibold">{user.name}</p>
+                  <p className="text-lg font-semibold">{data?.name}</p>
                 </div>
               </div>
 
@@ -107,7 +106,7 @@ const Profile = () => {
                   <p className="text-sm text-muted-foreground">
                     {t("profile.username") || "Username"}
                   </p>
-                  <p className="text-lg font-semibold">{user.username}</p>
+                  <p className="text-lg font-semibold">{data?.username}</p>
                 </div>
               </div>
 
@@ -119,11 +118,11 @@ const Profile = () => {
                   <p className="text-sm text-muted-foreground">
                     {t("profile.phone") || "Phone"}
                   </p>
-                  <p className="text-lg font-semibold">{user.phone}</p>
+                  <p className="text-lg font-semibold">{data?.phone}</p>
                 </div>
               </div>
 
-              {user.role && (
+              {data?.role && (
                 <div className="flex items-center space-x-4 p-4 rounded-lg bg-secondary/50 hover:bg-secondary transition-colors">
                   <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
                     <Shield className="w-5 h-5 text-primary" />
@@ -133,7 +132,7 @@ const Profile = () => {
                       {t("profile.role") || "Role"}
                     </p>
                     <p className="text-lg font-semibold capitalize">
-                      {user.role}
+                      {data?.role}
                     </p>
                   </div>
                 </div>

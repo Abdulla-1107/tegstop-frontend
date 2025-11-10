@@ -39,6 +39,8 @@ export default function Home() {
     passportCode: searchParams.passportCode,
   });
 
+  console.log(data);
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -191,8 +193,14 @@ export default function Home() {
                         </div>
                         <div className="flex items-center gap-2">
                           <User className="h-5 w-5 text-primary" />
-                          <p>{item.user?.name || "N/A"}</p>
+                          <p>
+                            {item.user?.name || "N/A"}{" "}
+                            {item.addedBy
+                              ? `(qo‘shgan: ${item.addedBy.name})`
+                              : ""}
+                          </p>
                         </div>
+
                         <div className="flex items-center gap-2">
                           <Calendar className="h-5 w-5 text-primary" />
                           <p>

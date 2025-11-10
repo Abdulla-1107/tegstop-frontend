@@ -37,6 +37,7 @@ export default function AddRecord() {
     passportSeriya: "AD",
     passportCode: "",
     type: "NasiyaMijoz",
+    time: 1, // default 1 oy
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -93,8 +94,6 @@ export default function AddRecord() {
             </CardHeader>
             <CardContent>
               <form onSubmit={handleSubmit} className="space-y-6">
-                {/* Ism / Familiya */}
-
                 {/* Pasport ma’lumotlari */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
@@ -167,6 +166,31 @@ export default function AddRecord() {
                   </RadioGroup>
                 </div>
 
+                {/* Nasiya uchun oylar soni */}
+                {formData.type === "NasiyaMijoz" && (
+                  <div className="space-y-2">
+                    <Label htmlFor="time">Oyni tanlang</Label>
+                    <Select
+                      value={formData.time?.toString() || ""}
+                      onValueChange={(value) =>
+                        setFormData({ ...formData, time: Number(value) })
+                      }
+                    >
+                      <SelectTrigger>
+                        <SelectValue placeholder="Oyni tanlang" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        {[...Array(12)].map((_, i) => (
+                          <SelectItem key={i + 1} value={(i + 1).toString()}>
+                            {i + 1} {i + 1 === 1 ? "oy" : "oy"}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+                )}
+
+                {/* Ism / Familiya */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
                     <Label htmlFor="name">{t("addRecord.name")}</Label>
